@@ -5,7 +5,7 @@ public class Ascensor {
 
 
 
-    public void usarAscensor(Integer cantidadPersona, Integer pisoActual, Integer pisoDestino) throws Exception{
+   /* public void usarAscensor(Integer cantidadPersona, Integer pisoActual, Integer pisoDestino) throws Exception{
         verificarCantidadPersonas(cantidadPersona);
         verificarPisoActualConPisoDestino(pisoActual,pisoDestino);
     }
@@ -15,11 +15,11 @@ public class Ascensor {
             throw new Exception();
         }
 
-    }
+    }*/
 
-    private void verificarCantidadPersonas(Integer personas) throws Exception {
+    public void verificarCantidadPersonas(Integer personas) throws Exception {
         if(personas>LIMITE_MAXIMO_PERSONAS){
-            throw new Exception();
+            throw new Exception("La capacidad de peso del ascensor esta disponible para una persona");
         }
     }
 

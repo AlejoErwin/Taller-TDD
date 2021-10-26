@@ -33,6 +33,18 @@ public class AscensorTest {
     }
 
     @Test
+    public void verificarLimitesAscensor() throws Exception {
+
+        //2.Logica de la prueba
+
+        //3. Verificacion o Assert
+        ascensor.PresionarBotonAscensor(1,2);
+        exception.expect(Exception.class);
+        ascensor.PresionarBotonAscensor(4,2);
+
+    }
+
+    @Test
     public void pisoDestinoDiferentedelActual() throws Exception {
 
 

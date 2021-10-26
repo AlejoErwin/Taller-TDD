@@ -26,9 +26,10 @@ public class AscensorTest {
         //2.Logica de la prueba
 
         //3. Verificacion o Assert
-        exception.expect(Exception.class);
-
         ascensor.PresionarBotonAscensor(1,2);
+        exception.expect(Exception.class);
+        ascensor.PresionarBotonAscensor(4,2);
+
     }
 
     @Test
@@ -40,7 +41,8 @@ public class AscensorTest {
         ascensor.PresionarBotonAscensor(1,3);
 
     }
-    /*@Test
+
+    @Test
     public void intercalarDireccionesArribayAbajo() throws Exception {
 
         //2.Logica de la prueba
@@ -56,30 +58,6 @@ public class AscensorTest {
 
 
         exception.expect(Exception.class);
-        ascensor.ve;
-        ascensor.verificarCantidadPersonas(4);
     }
-
-    @Test
-    public void pisoDestinoDifeentedelActual() throws Exception {
-
-        //2.Logica de la prueba
-
-        //3. Verificacion o Assert
-        exception.expect(Exception.class);
-        ascensor.verificarCantidadPersonas(4);
-    }
-
-
-
-
-
-
-*/
-
-
-
-
-
 
 }

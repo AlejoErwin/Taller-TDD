@@ -1,6 +1,7 @@
 public class Ascensor {
 
     private int[] pisoDeEdificio = {0,0,0};
+    private final int NUMERO_DE_PISOS=3;
     private final int LIMITE_MAXIMA_ASCENSOR = 1;
     private int pisoActualAscensor = 0;
     private int pisoDestinoAscensor = 0;
@@ -9,6 +10,8 @@ public class Ascensor {
     public String PresionarBotonAscensor(int personas, int pisoDestino)throws Exception{
         verificarCapacidad(personas);
         int pisoActual =crearPersona(pisoDestino);
+        System.out.println("Se encuentra en el piso"+pisoActual);
+        verificarLimitesAscensror(pisoActual);
         int piso = posicionAscensor(pisoActual, pisoDestino);
         return "El ascensor esta en el piso: "+piso;
     }
@@ -40,9 +43,19 @@ public class Ascensor {
         }
     }
     private void verificarPiso(int pisoDestino) throws Exception{
-        if(pisoDestino>pisoDeEdificio.length || pisoDestino<1){
+        if(pisoDestino>NUMERO_DE_PISOS || pisoDestino<1){
             throw new Exception("Piso inexistente");
         }
+    }
+
+    private void verificarLimitesAscensror(int pisoActualAscensor){
+        if(pisoActualAscensor==NUMERO_DE_PISOS){
+            System.out.println("Solo puede bajar");
+        }
+        if(pisoActualAscensor==1){
+            System.out.println("Solo puede subir");
+        }
+
     }
 
     private int posicionAscensor(int pisoActual, int pisoDestino){

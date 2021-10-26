@@ -4,12 +4,20 @@ public class Ascensor {
     private final int LIMITE_MAXIMA_ASCENSOR = 1;
 
     public void PresionarBotonAscensor(int personas, int pisoDestino)throws Exception{
+
         verificarCapacidad(personas);
         int pisoActual =crearPersona(pisoDestino);
     }
     private void verificarCapacidad(int cantidadPersonas) throws Exception{
-        if(cantidadPersonas>LIMITE_MAXIMA_ASCENSOR)
-            throw new Exception("");
+        if(cantidadPersonas>LIMITE_MAXIMA_ASCENSOR) {
+            throw new Exception("Capacidad excedida");
+        }
+        else{
+            if(cantidadPersonas==LIMITE_MAXIMA_ASCENSOR){
+                System.out.println("Capacidad Aceptada");
+            }
+        }
+
     }
     public int crearPersona(int pisoDestino) throws Exception{
         int pisoActual = asignarPisoActual();

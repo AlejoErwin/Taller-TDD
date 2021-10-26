@@ -27,17 +27,19 @@ public class AscensorTest {
 
         //3. Verificacion o Assert
         exception.expect(Exception.class);
-        ascensor.verificarCantidadPersonas(4);
-    }
 
+        ascensor.PresionarBotonAscensor(1,2);
+    }
+/*
     @Test
     public void intercalarDireccionesArribayAbajo() throws Exception {
 
         //2.Logica de la prueba
 
         //3. Verificacion o Assert
-        exception.expect(Exception.class);
-        ascensor.verificarCantidadPersonas(4);
+        //exception.expect(Exception.class);
+        //ascensor.verificarCantidadPersonas(4);
+        ascensor.presionarBoton();
     }
 
     @Test
@@ -65,7 +67,7 @@ public class AscensorTest {
 
 
 
-
+*/
 
 
 

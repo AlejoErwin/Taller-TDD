@@ -8,7 +8,7 @@ public class Ascensor {
     public String PresionarBotonAscensor(int personas, int pisoDestino)throws Exception{
         verificarCapacidad(personas);
         int pisoActual =crearPersona(pisoDestino);
-        System.out.println("Se encuentra en el piso"+pisoActual);
+        System.out.println("Se encuentra en el piso "+pisoActual);
         verificarLimitesAscensror(pisoActual);
         String ascensorActual = posicionAscensor(pisoActual, pisoDestino);
         return ascensorActual;
@@ -25,19 +25,25 @@ public class Ascensor {
 
     }
     public int crearPersona(int pisoDestino) throws Exception{
-        int pisoActual = asignarPisoActual();
+        int pisoActual = asignarPisoActual(pisoDestino);
         verificarPisoActualYDestino(pisoActual,pisoDestino);
         verificarPiso(pisoDestino);
         pisoDeEdificio[pisoActual-1]++;
         return pisoActual;
     }
-    public int asignarPisoActual(){
-        int posicionPersona = (int) Math.floor(Math.random() * (3 - 1 + 1) + 1);
+    public int asignarPisoActual(int pisoDestino){
+        int posicionPersona;
+        while(true){
+            posicionPersona = (int) Math.floor(Math.random() * (3 - 1 + 1) + 1);
+            if(posicionPersona!=pisoDestino) break;
+        }
         return posicionPersona;
     }
-    private void verificarPisoActualYDestino(int pisoActual, int pisoDestino){
+    private void verificarPisoActualYDestino(int pisoActual, int pisoDestino) throws Exception {
         if(pisoActual==pisoDestino){
-            System.out.println("El piso actual y el destino son lo mismo");
+
+            //System.out.println("El piso actual y el destino son lo mismo");
+            throw new Exception("El piso actual y el destino son lo mismo");
         }
     }
     private void verificarPiso(int pisoDestino) throws Exception{
@@ -56,16 +62,13 @@ public class Ascensor {
 
     }
 
-    public String posicionAscensor(int pisoActual, int pisoDestino){
+    public String posicionAscensor(int pisoActual, int pisoDestino) throws Exception {
         String ascensorActual = "";
         if(pisoActualAscensor+1 == pisoActual){
             ascensorActual = "Abrir ascensor";
         }else ascensorActual = "Esperando ascensor";
 
         pisoActualAscensor = pisoActual;
-        //estadoPuerta = "abierto";
-        //pisoDestinoAscensor = pisoDestino;
-        //estadoPuerta = "cerrado";
         limpiarPisoEdificio();
         pisoActualAscensor = pisoDestino - 1;
         return ascensorActual;
@@ -76,6 +79,13 @@ public class Ascensor {
         }
         //pisoDestinoAscensor = 0;
     }
+
+    public String verificarEstadoDeAscensor() throws Exception{
+        int pisoActual = pisoActualAscensor + 1 ;
+        return "Piso actual del ascensor " + pisoActual;
+    }
+
+
 
 
 

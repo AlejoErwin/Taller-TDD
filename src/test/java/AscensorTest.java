@@ -48,7 +48,7 @@ public class AscensorTest {
     }
 
     @Test
-    public void pisoDestinoDifeentedelActual() throws Exception {
+    public void verificarpisoDestinoDifeentedelActual() throws Exception {
 
 
         //3. Verificacion o Assert
@@ -59,7 +59,7 @@ public class AscensorTest {
     }
 
     @Test
-    public void intercalarDireccionesArribayAbajo() throws Exception {
+    public void verificarintercalarDireccionesArribayAbajo() throws Exception {
 
         //2.Logica de la prueba
 
@@ -72,7 +72,7 @@ public class AscensorTest {
 
 
     @Test
-    public void pisoDestinoFueraDelRango() throws Exception {
+    public void verificarpisoDestinoFueraDelRango() throws Exception {
 
         //2.Logica de la prueba
 
@@ -83,7 +83,7 @@ public class AscensorTest {
     }
 
     @Test
-    public void primeraPersonaDElDiaApareceEnElPiso1() throws Exception {
+    public void verificarprimeraPersonaDElDiaApareceEnElPiso1() throws Exception {
 
         //2.Logica de la prueba
 
@@ -92,37 +92,23 @@ public class AscensorTest {
     }
 
     @Test
-    public void primeraPersonaDElDiaNoApareceEnElPiso1() throws Exception {
+    public void verificarprimeraPersonaDElDiaNoApareceEnElPiso1() throws Exception {
 
         //2.Logica de la prueba
 
         //3. Verificacion o Assert
         assertEquals("Esperando ascensor",ascensor.posicionAscensor(3,3));
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @Test
+    public void verificarEstadoActualDelAscensor() throws Exception{
+        //Verificacion o Assert
+        ascensor.PresionarBotonAscensor(1,3);
+        assertEquals("Piso actual del ascensor 3",ascensor.verificarEstadoDeAscensor());
+        ascensor.PresionarBotonAscensor(1,1);
+        assertEquals("Piso actual del ascensor 1",ascensor.verificarEstadoDeAscensor());
+        ascensor.PresionarBotonAscensor(1,2);
+        assertEquals("Piso actual del ascensor 2",ascensor.verificarEstadoDeAscensor());
+    }
 
 
 }

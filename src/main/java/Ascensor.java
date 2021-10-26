@@ -34,9 +34,9 @@ public class Ascensor {
         int posicionPersona = (int) Math.floor(Math.random() * (3 - 1 + 1) + 1);
         return posicionPersona;
     }
-    private void verificarPisoActualYDestino(int pisoActual, int pisoDestino) throws Exception{
+    private void verificarPisoActualYDestino(int pisoActual, int pisoDestino){
         if(pisoActual==pisoDestino){
-            throw new Exception("Piso actual y el destino es el mismo");
+            System.out.println("El piso actual y el destino son lo mismo");
         }
     }
     private void verificarPiso(int pisoDestino) throws Exception{

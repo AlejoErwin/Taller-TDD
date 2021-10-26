@@ -32,6 +32,15 @@ public class AscensorTest {
     }
 
     @Test
+    public void pisoDestinoDiferentedelActual() throws Exception {
+
+
+        ascensor.PresionarBotonAscensor(1,1);
+        ascensor.PresionarBotonAscensor(1,2);
+        ascensor.PresionarBotonAscensor(1,3);
+
+    }
+    /*@Test
     public void intercalarDireccionesArribayAbajo() throws Exception {
 
         //2.Logica de la prueba
@@ -45,10 +54,9 @@ public class AscensorTest {
     @Test
     public void pisoDestinoDifeentedelActual() throws Exception {
 
-        //2.Logica de la prueba
 
-        //3. Verificacion o Assert
         exception.expect(Exception.class);
+        ascensor.ve;
         ascensor.verificarCantidadPersonas(4);
     }
 

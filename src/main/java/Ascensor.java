@@ -2,24 +2,21 @@ public class Ascensor {
 
     private int[] pisoDeEdificio = {0,0,0};
     private final int LIMITE_MAXIMA_ASCENSOR = 1;
-    private int pisoActualAscensor = 0;
-    private int pisoDestinoAscensor = 0;
-    private String estadoPuerta = "cerrado";
 
-    public void PresionarBotonAscensor(int personas,int pisoActual, int pisoDestino)throws Exception{
+    public void PresionarBotonAscensor(int personas, int pisoDestino)throws Exception{
         verificarCapacidad(personas);
-        crearPersona(pisoDestino);
+        int pisoActual =crearPersona(pisoDestino);
     }
     private void verificarCapacidad(int cantidadPersonas) throws Exception{
         if(cantidadPersonas>LIMITE_MAXIMA_ASCENSOR)
             throw new Exception("");
     }
-    public String crearPersona(int pisoDestino) throws Exception{
+    public int crearPersona(int pisoDestino) throws Exception{
         int pisoActual = asignarPisoActual();
         verificarPisoActualYDestino(pisoActual,pisoDestino);
         verificarPiso(pisoDestino);
         pisoDeEdificio[pisoActual-1]++;
-        return "La persona esta en el piso: "+pisoActual;
+        return pisoActual;
     }
     public int asignarPisoActual(){
         int posicionPersona = (int) Math.floor(Math.random() * (3 - 1 + 1) + 1);
@@ -35,7 +32,6 @@ public class Ascensor {
             throw new Exception("Piso inexistente");
         }
     }
-
 
 
 

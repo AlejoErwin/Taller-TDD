@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
-
 public class AscensorTest {
 
     private Ascensor ascensor;

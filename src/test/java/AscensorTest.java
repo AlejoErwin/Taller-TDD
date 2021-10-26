@@ -30,7 +30,7 @@ public class AscensorTest {
 
         ascensor.PresionarBotonAscensor(1,2);
     }
-/*
+
     @Test
     public void intercalarDireccionesArribayAbajo() throws Exception {
 
@@ -39,7 +39,7 @@ public class AscensorTest {
         //3. Verificacion o Assert
         //exception.expect(Exception.class);
         //ascensor.verificarCantidadPersonas(4);
-        ascensor.presionarBoton();
+        ascensor.PresionarBotonAscensor(1,2);
     }
 
     @Test

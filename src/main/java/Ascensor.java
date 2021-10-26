@@ -4,16 +4,14 @@ public class Ascensor {
     private final int NUMERO_DE_PISOS=3;
     private final int LIMITE_MAXIMA_ASCENSOR = 1;
     private int pisoActualAscensor = 0;
-    private int pisoDestinoAscensor = 0;
-    private String estadoPuerta = "cerrado";
 
     public String PresionarBotonAscensor(int personas, int pisoDestino)throws Exception{
         verificarCapacidad(personas);
         int pisoActual =crearPersona(pisoDestino);
         System.out.println("Se encuentra en el piso"+pisoActual);
         verificarLimitesAscensror(pisoActual);
-        int piso = posicionAscensor(pisoActual, pisoDestino);
-        return "El ascensor esta en el piso: "+piso;
+        String ascensorActual = posicionAscensor(pisoActual, pisoDestino);
+        return ascensorActual;
     }
     private void verificarCapacidad(int cantidadPersonas) throws Exception{
         if(cantidadPersonas>LIMITE_MAXIMA_ASCENSOR) {
@@ -44,7 +42,7 @@ public class Ascensor {
     }
     private void verificarPiso(int pisoDestino) throws Exception{
         if(pisoDestino>NUMERO_DE_PISOS || pisoDestino<1){
-            throw new Exception("Piso inexistente");
+            throw new Exception("Piso esta fuera de rango");
         }
     }
 
@@ -58,26 +56,25 @@ public class Ascensor {
 
     }
 
-    private int posicionAscensor(int pisoActual, int pisoDestino){
-        String mensaje = "";
-        //if(pisoActualAscensor+1 == pisoActual && pisoDestinoAscensor == 0){
-        //    mensaje = "Abrir inmediatamente";
-        //}else{
-        //    mensaje = "Esperando ascensor";
-        //}
+    public String posicionAscensor(int pisoActual, int pisoDestino){
+        String ascensorActual = "";
+        if(pisoActualAscensor+1 == pisoActual){
+            ascensorActual = "Abrir ascensor";
+        }else ascensorActual = "Esperando ascensor";
+
         pisoActualAscensor = pisoActual;
-        estadoPuerta = "abierto";
-        pisoDestinoAscensor = pisoDestino;
-        estadoPuerta = "cerrado";
+        //estadoPuerta = "abierto";
+        //pisoDestinoAscensor = pisoDestino;
+        //estadoPuerta = "cerrado";
         limpiarPisoEdificio();
         pisoActualAscensor = pisoDestino - 1;
-        return pisoActualAscensor;
+        return ascensorActual;
     }
     private void limpiarPisoEdificio(){
         for(int i = 0; i < pisoDeEdificio.length ; i++){
             pisoDeEdificio [i] = 0 ;
         }
-        pisoDestinoAscensor = 0;
+        //pisoDestinoAscensor = 0;
     }
 
 

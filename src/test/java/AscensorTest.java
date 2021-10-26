@@ -30,6 +30,9 @@ public class AscensorTest {
         exception.expect(Exception.class);
         ascensor.PresionarBotonAscensor(4,2);
 
+        ascensor.PresionarBotonAscensor(1,1);
+        exception.expect(Exception.class);
+        ascensor.PresionarBotonAscensor(4,2);
     }
 
     @Test
@@ -45,9 +48,10 @@ public class AscensorTest {
     }
 
     @Test
-    public void pisoDestinoDiferentedelActual() throws Exception {
+    public void pisoDestinoDifeentedelActual() throws Exception {
 
 
+        //3. Verificacion o Assert
         ascensor.PresionarBotonAscensor(1,1);
         ascensor.PresionarBotonAscensor(1,2);
         ascensor.PresionarBotonAscensor(1,3);
@@ -65,11 +69,60 @@ public class AscensorTest {
         ascensor.PresionarBotonAscensor(1,2);
     }
 
+
+
     @Test
-    public void pisoDestinoDifeentedelActual() throws Exception {
+    public void pisoDestinoFueraDelRango() throws Exception {
 
+        //2.Logica de la prueba
 
+        //3. Verificacion o Assert
+        ascensor.PresionarBotonAscensor(1,1);
         exception.expect(Exception.class);
+        ascensor.PresionarBotonAscensor(1,5);
     }
+
+    @Test
+    public void primeraPersonaDElDiaApareceEnElPiso1() throws Exception {
+
+        //2.Logica de la prueba
+
+        //3. Verificacion o Assert
+        assertEquals("Abrir ascensor",ascensor.posicionAscensor(1,3));
+    }
+
+    @Test
+    public void primeraPersonaDElDiaNoApareceEnElPiso1() throws Exception {
+
+        //2.Logica de la prueba
+
+        //3. Verificacion o Assert
+        assertEquals("Esperando ascensor",ascensor.posicionAscensor(3,3));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

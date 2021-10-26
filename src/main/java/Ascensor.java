@@ -3,7 +3,7 @@ public class Ascensor {
     private int[] pisoDeEdificio = {0,0,0};
     private final int NUMERO_DE_PISOS=3;
     private final int LIMITE_MAXIMA_ASCENSOR = 1;
-    private int pisoActualAscensor = 0;
+    private int PISO_ACTUAL_ASCENSOR = 0;
 
     public String PresionarBotonAscensor(int personas, int pisoDestino)throws Exception{
         verificarCapacidad(personas);
@@ -41,8 +41,6 @@ public class Ascensor {
     }
     private void verificarPisoActualYDestino(int pisoActual, int pisoDestino) throws Exception {
         if(pisoActual==pisoDestino){
-
-            //System.out.println("El piso actual y el destino son lo mismo");
             throw new Exception("El piso actual y el destino son lo mismo");
         }
     }
@@ -64,24 +62,23 @@ public class Ascensor {
 
     public String posicionAscensor(int pisoActual, int pisoDestino) throws Exception {
         String ascensorActual = "";
-        if(pisoActualAscensor+1 == pisoActual){
+        if(PISO_ACTUAL_ASCENSOR+1 == pisoActual){
             ascensorActual = "Abrir ascensor";
         }else ascensorActual = "Esperando ascensor";
 
-        pisoActualAscensor = pisoActual;
+        PISO_ACTUAL_ASCENSOR = pisoActual;
         limpiarPisoEdificio();
-        pisoActualAscensor = pisoDestino - 1;
+        PISO_ACTUAL_ASCENSOR = pisoDestino - 1;
         return ascensorActual;
     }
     private void limpiarPisoEdificio(){
         for(int i = 0; i < pisoDeEdificio.length ; i++){
             pisoDeEdificio [i] = 0 ;
         }
-        //pisoDestinoAscensor = 0;
     }
 
     public String verificarEstadoDeAscensor() throws Exception{
-        int pisoActual = pisoActualAscensor + 1 ;
+        int pisoActual = PISO_ACTUAL_ASCENSOR + 1 ;
         return "Piso actual del ascensor " + pisoActual;
     }
 
